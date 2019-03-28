@@ -1,18 +1,16 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
+  <id>com.hhh.plugin.auto.tinypic</id>
+  <name>autoTinyPic</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="haihuahuang2013@163.com" url="https://github.com/3HJack">OnePiece</vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      Automatically add png or jpg images to the project to the <br>
+      <em>https://tinypng.com/</em> for compression.
     ]]></description>
 
-  <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
-    ]]>
+  <change-notes>
+    The first edition, welcome feedback for any questions.
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
@@ -28,8 +26,19 @@
     <!-- Add your extensions here -->
   </extensions>
 
+  <project-components>
+    <component>
+      <implementation-class>com.hhh.tinypic.ProjectInitListener</implementation-class>
+      <loadForDefaultProject/>
+    </component>
+  </project-components>
+
   <actions>
     <!-- Add your actions here -->
+    <action id="AutoTinyPic.TinyPicSwitchAction" class="com.hhh.tinypic.TinyPicSwitchAction" text="SwitchTinyPic"
+            description="Enable(valid api key) or Disable(empty key) TinyPic">
+      <add-to-group group-id="ToolsMenu" anchor="last"/>
+    </action>
   </actions>
 
 </idea-plugin>
