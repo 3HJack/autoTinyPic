@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.hhh.plugin.auto.tinypic</id>
   <name>autoTinyPic</name>
-  <version>1.0</version>
+  <version>1.1</version>
   <vendor email="haihuahuang2013@163.com" url="https://github.com/3HJack">OnePiece</vendor>
 
   <description><![CDATA[
@@ -37,6 +37,10 @@
     <!-- Add your actions here -->
     <action id="AutoTinyPic.TinyPicSwitchAction" class="com.hhh.tinypic.TinyPicSwitchAction" text="SwitchTinyPic"
             description="Enable(valid api key) or Disable(empty key) TinyPic">
+      <add-to-group group-id="ToolsMenu" anchor="last"/>
+    </action>
+    <action id="AutoTinyPic.ManualTinyPicAction" class="com.hhh.tinypic.ManualTinyPicAction" text="ManualTinyPic"
+            description="Manually select images for compression">
       <add-to-group group-id="ToolsMenu" anchor="last"/>
     </action>
   </actions>

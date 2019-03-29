@@ -6,19 +6,19 @@ import com.intellij.openapi.project.Project;
 
 public class ProjectInitListener implements ProjectComponent, DumbAware {
 
-    private final Project mProject;
+  private final Project mProject;
 
-    ProjectInitListener(Project project) {
-        mProject = project;
-    }
+  ProjectInitListener(Project project) {
+    mProject = project;
+  }
 
-    @Override
-    public void projectOpened() {
-        TinyPicManager.getInstance().initTinyPic(mProject);
-    }
+  @Override
+  public void projectOpened() {
+    TinyPicManager.getInstance().initTinyPic(mProject);
+  }
 
-    @Override
-    public void projectClosed() {
-        TinyPicManager.getInstance().unInitTinyPic();
-    }
+  @Override
+  public void projectClosed() {
+    TinyPicManager.getInstance().unInitTinyPic();
+  }
 }
