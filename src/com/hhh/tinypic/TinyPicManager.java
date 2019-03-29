@@ -8,7 +8,6 @@ import com.intellij.openapi.vfs.VirtualFileEvent;
 import com.intellij.openapi.vfs.VirtualFileListener;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.tinify.Tinify;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
@@ -90,7 +89,7 @@ public class TinyPicManager {
     try {
       String filePath = file.getPath();
       Tinify.fromFile(filePath).toFile(filePath);
-      if (FileUtils.sizeOf(new File(filePath)) > MAX_SIZE_FOR_WARNING) {
+      if (new File(filePath).length() > MAX_SIZE_FOR_WARNING) {
         ApplicationManager.getApplication().invokeLater(() -> {
           int result = Messages.showYesNoDialog(mProject, filePath + " is greater than 10KB !!! Are you sure to keep it ?",
               KEY_DIALOG_TITLE, Messages.getQuestionIcon());
