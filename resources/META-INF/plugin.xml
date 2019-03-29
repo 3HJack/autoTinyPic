@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.hhh.plugin.auto.tinypic</id>
   <name>autoTinyPic</name>
-  <version>1.1</version>
+  <version>1.2</version>
   <vendor email="haihuahuang2013@163.com" url="https://github.com/3HJack">OnePiece</vendor>
 
   <description><![CDATA[
@@ -21,6 +21,8 @@
   <!-- uncomment to enable plugin in all products
   <depends>com.intellij.modules.lang</depends>
   -->
+
+  <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
