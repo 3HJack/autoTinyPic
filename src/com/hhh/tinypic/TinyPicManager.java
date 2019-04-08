@@ -86,12 +86,24 @@ public class TinyPicManager {
     if (!isPicFile(file)) {
       return;
     }
+    String filePath = file.getPath();
+    if (filePath.contains("/build/intermediates/")) {
+      return;
+    }
     try {
-      String filePath = file.getPath();
+      File picFile = new File(filePath);
+      System.out.println("AutoTinyPic_before: " + filePath + " " + picFile.length());
       Tinify.fromFile(filePath).toFile(filePath);
-      if (new File(filePath).length() > MAX_SIZE_FOR_WARNING) {
+      if (picFile.length() > MAX_SIZE_FOR_WARNING) {
+        for (int i = 0; i < 2; ++i) {
+          Tinify.fromFile(filePath).toFile(filePath);
+        }
+        if (picFile.length() <= MAX_SIZE_FOR_WARNING) {
+          System.out.println("AutoTinyPic_after: " + filePath + " " + picFile.length());
+          return;
+        }
         ApplicationManager.getApplication().invokeLater(() -> {
-          int result = Messages.showYesNoDialog(mProject, filePath + " is greater than 10KB !!! Are you sure to keep it ?",
+          int result = Messages.showYesNoDialog(mProject, filePath + " is " + (picFile.length() / 1024) + " KB !!! Are you sure to keep it ?",
               KEY_DIALOG_TITLE, Messages.getQuestionIcon());
           if (result == Messages.NO) {
             try {
@@ -102,6 +114,7 @@ public class TinyPicManager {
           }
         });
       }
+      System.out.println("AutoTinyPic_after: " + filePath + " " + picFile.length());
     } catch (Exception e) {
       e.printStackTrace();
     }
