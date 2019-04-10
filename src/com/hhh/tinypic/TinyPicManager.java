@@ -25,7 +25,7 @@ public class TinyPicManager {
   public static final String KEY_API = "tiny_pic_api";
 
   private static TinyPicManager ourInstance = new TinyPicManager();
-  private final ExecutorService mExecutorService = Executors.newCachedThreadPool();
+  private final ExecutorService mExecutorService = Executors.newFixedThreadPool(10);
 
   private Project mProject;
   private VirtualFileListener mFileListener;

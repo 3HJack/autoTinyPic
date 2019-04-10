@@ -1,19 +1,20 @@
 <idea-plugin>
   <id>com.hhh.plugin.auto.tinypic</id>
   <name>autoTinyPic</name>
-  <version>1.4</version>
+  <version>1.5</version>
   <vendor email="haihuahuang2013@163.com" url="https://github.com/3HJack">OnePiece</vendor>
 
   <description><![CDATA[
       Automatically add png or jpg images to the project to the https://tinypng.com/ for compression.
     ]]></description>
 
-  <change-notes>
-    1. Automatically monitor the images added to the project and compress
+  <change-notes><![CDATA[
+    1. Automatically monitor the images added to the project and compress.<br>
 
-    2. Manually select images for compression
+    2. Manually select images for compression.<br>
 
-    3. Pop-up prompt when the image is still larger than 10KB after compression
+    3. Pop-up prompt when the image is still larger than 10KB after compression.
+    ]]>
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
